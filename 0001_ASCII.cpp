@@ -25,7 +25,6 @@ int main()
         cout << "You have entered " << c << " and it's ASCII value is: " << n;
     }
 
-
     // * Program to print all ASCII Values     *****     Jul,30 - 12:19 //
     /*
     int ascii = 0;
