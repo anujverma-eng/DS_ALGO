@@ -28,6 +28,13 @@ void pattern2()
 
 void pattern3_method1()
 {
+    // * Relation between i & j = for J loop == 2(n-i)-1
+    /*
+     * i=4, j=7
+     * i=3, j=5
+     * i=2, j=3
+     * i=1, j=1
+     */
     int n = 5;
     for (int i = 0; i < n; i++)
     {
@@ -176,6 +183,156 @@ void series1()
     // }
 }
 
+void pattern10_method1()
+{
+    // * Relation between i & j = for J loop == 2(n-i)+1
+    /*
+     * i=4, j=1
+     * i=3, j=3
+     * i=2, j=5
+     * i=1, j=7
+     */
+    int n = 4;
+    for (int i = n; i >= n - (n - 1); i--)
+    {
+        for (int space = 1; space < i; space++)
+        {
+            cout << "  ";
+        }
+        for (int j = 1; j <= (2 * (n - i) + 1); j++)
+        {
+            cout << "* ";
+        }
+        cout << endl;
+    }
+}
+void pattern10_method2()
+{
+
+    int n = 4;
+    for (int i = n; i >= n - (n - 1); i--)
+    {
+        for (int space = 1; space < i; space++)
+        {
+            cout << "  ";
+        }
+        // * Relation between i & j = for J loop == (n-i)+1
+        /*
+         * i=4, j=1
+         * i=3, j=2
+         * i=2, j=3
+         * i=1, j=4
+         */
+        for (int j = 1; j <= (n - i) + 1; j++)
+        {
+            cout << "* ";
+        }
+
+        // * Relation between i & j = for J loop == (n-i)
+        /*
+         * i=4, j=0
+         * i=3, j=1
+         * i=2, j=2
+         * i=1, j=3
+         */
+        for (int j = 1; j <= n - i; j++)
+        {
+            cout << "* ";
+        }
+        cout << endl;
+    }
+}
+
+void pattern11()
+{
+    int n = 5;
+    for (int i = 1; i <= n; i++)
+    {
+        if (i == (n - (n - 1)))
+        {
+            for (int j = 1; j <= n; j++)
+            {
+                cout << "* ";
+            }
+        }
+        else if (i == n)
+        {
+            for (int j = 1; j <= n; j++)
+            {
+                cout << "* ";
+            }
+        }
+        else
+        {
+            cout << "* ";
+            for (int space = 1; space < n - 1; space++)
+            {
+                cout << "  ";
+            }
+            cout << "* ";
+        }
+        cout << endl;
+    }
+}
+
+void pattern12()
+{
+    int n = 5;
+    for (int i = n; i >= (n - (n - 1)); i--)
+    {
+        for (int space = 1; space < i; space++)
+        {
+            cout << "  ";
+        }
+        if (i == n)
+        {
+            cout << "* ";
+        }
+        else if (i == (n - (n - 1)))
+        {
+            for (int j = 1; j <= 2 * n - 1; j++)
+            {
+                cout << "* ";
+            }
+        }
+        else
+        {
+            cout << "* ";
+            for (int space = 1; space <= (2 * (n - i) - 1); space++)
+            {
+                cout << "  ";
+            }
+            cout << "* ";
+        }
+        cout << endl;
+    }
+}
+
+void pattern13()
+{
+    int n = 5;
+    int len = 2 * n - 1;
+    int min1, min2, min;
+    // Complete the code to print the pattern.
+    // for rows
+    for (int i = 1; i <= len; i++)
+    {
+        // for col
+        for (int j = 1; j <= len; j++)
+        {
+            // min diff btn vertical sides
+            min1 = i <= len - i ? i - 1 : len - i;
+            // min diff btn horizontal sides
+            min2 = j <= len - j ? j - 1 : len - j;
+            // min diff btn vertical & horizontal sides
+            min = min1 <= min2 ? min1 : min2;
+            // print
+            cout << n - min <<" ";
+        }
+        cout << endl;
+    }
+}
+
 int main()
 {
     // * * * * *
@@ -242,10 +399,43 @@ int main()
     // 11 12 13 14 15
     // pattern9_method1();
 
-
     //* TO Print the Series like :: 1, 2, 4, 7, 11
     //* TO Print the Series like :: 1, 3, 6, 10, 15
     // series1();
+
+    //       *
+    //     * * *
+    //   * * * * *
+    // * * * * * * *
+    // pattern10_method1();
+    // pattern10_method2();
+
+    // * * * * *
+    // *       *
+    // *       *
+    // *       *
+    // * * * * *
+    // pattern11();
+
+    //         *
+    //       *   *
+    //     *       *
+    //   *           *
+    // * * * * * * * * *
+    // pattern12();
+
+
+    // 5 5 5 5 5 5 5 5 5 
+    // 5 4 4 4 4 4 4 4 5
+    // 5 4 3 3 3 3 3 4 5
+    // 5 4 3 2 2 2 3 4 5
+    // 5 4 3 2 1 2 3 4 5 
+    // 5 4 3 2 2 2 3 4 5
+    // 5 4 3 3 3 3 3 4 5
+    // 5 4 4 4 4 4 4 4 5
+    // 5 5 5 5 5 5 5 5 5
+    // ! HARD Pattern
+    // pattern13();
 
     return 0;
 }
