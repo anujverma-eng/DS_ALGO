@@ -327,7 +327,43 @@ void pattern13()
             // min diff btn vertical & horizontal sides
             min = min1 <= min2 ? min1 : min2;
             // print
-            cout << n - min <<" ";
+            cout << n - min << " ";
+        }
+        cout << endl;
+    }
+}
+
+void pattern14()
+{
+    int n = 5;
+    for (int i = n; i >= (n - (n - 1)); i--)
+    {
+        for (int space = 1; space < i; space++)
+        {
+            cout << "  ";
+        }
+        if (i == n)
+        {
+            cout << "* ";
+        }
+        else
+        {
+            if (i == (n / 2) + 1)
+            {
+                for (int j = 1; j <= n; j++)
+                {
+                    cout << "* ";
+                }
+            }
+            else
+            {
+                cout << "* ";
+                for (int space = 1; space <= (2 * (n - i) - 1); space++)
+                {
+                    cout << "  ";
+                }
+                cout << "* ";
+            }
         }
         cout << endl;
     }
@@ -424,18 +460,25 @@ int main()
     // * * * * * * * * *
     // pattern12();
 
-
-    // 5 5 5 5 5 5 5 5 5 
+    // 5 5 5 5 5 5 5 5 5
     // 5 4 4 4 4 4 4 4 5
     // 5 4 3 3 3 3 3 4 5
     // 5 4 3 2 2 2 3 4 5
-    // 5 4 3 2 1 2 3 4 5 
+    // 5 4 3 2 1 2 3 4 5
     // 5 4 3 2 2 2 3 4 5
     // 5 4 3 3 3 3 3 4 5
     // 5 4 4 4 4 4 4 4 5
     // 5 5 5 5 5 5 5 5 5
     // ! HARD Pattern
     // pattern13();
+
+
+    //         *       
+    //       *   *     
+    //     * * * * *   
+    //   *           * 
+    // *               * 
+    // pattern14();
 
     return 0;
 }
